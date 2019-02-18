@@ -6,6 +6,9 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'trackinglogger.bundle.js',
+        libraryTarget: 'umd',
+        globalObject: 'this',
+        library: 'trackingLogger'
     },
     mode: 'development',
     resolve: {

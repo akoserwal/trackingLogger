@@ -1,6 +1,7 @@
 import { Guid } from "guid-typescript";
-export declare class TrackingLogger {
-    trackingId: Guid;
-    constructor();
+export declare class GenerateGuid {
+    static trackingId: Guid;
+    private constructor();
+    static getGuid(): Guid;
+    static createGuid(): Guid;
 }
-export declare let trackingLogger: TrackingLogger;

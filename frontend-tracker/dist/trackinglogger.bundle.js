@@ -1,4 +1,14 @@
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["trackingLogger"] = factory();
+	else
+		root["trackingLogger"] = factory();
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -94,7 +104,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nexports.__esModule = true;\r\nvar Guid = /** @class */ (function () {\r\n    function Guid(guid) {\r\n        if (!guid) {\r\n            throw new TypeError(\"Invalid argument; `value` has no value.\");\r\n        }\r\n        this.value = Guid.EMPTY;\r\n        if (guid && Guid.isGuid(guid)) {\r\n            this.value = guid;\r\n        }\r\n    }\r\n    Guid.isGuid = function (guid) {\r\n        var value = guid.toString();\r\n        return guid && (guid instanceof Guid || Guid.validator.test(value));\r\n    };\r\n    Guid.create = function () {\r\n        return new Guid([Guid.gen(2), Guid.gen(1), Guid.gen(1), Guid.gen(1), Guid.gen(3)].join(\"-\"));\r\n    };\r\n    Guid.createEmpty = function () {\r\n        return new Guid(\"emptyguid\");\r\n    };\r\n    Guid.parse = function (guid) {\r\n        return new Guid(guid);\r\n    };\r\n    Guid.raw = function () {\r\n        return [Guid.gen(2), Guid.gen(1), Guid.gen(1), Guid.gen(1), Guid.gen(3)].join(\"-\");\r\n    };\r\n    Guid.gen = function (count) {\r\n        var out = \"\";\r\n        for (var i = 0; i < count; i++) {\r\n            // tslint:disable-next-line:no-bitwise\r\n            out += (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);\r\n        }\r\n        return out;\r\n    };\r\n    Guid.prototype.equals = function (other) {\r\n        // Comparing string `value` against provided `guid` will auto-call\r\n        // toString on `guid` for comparison\r\n        return Guid.isGuid(other) && this.value === other.toString();\r\n    };\r\n    Guid.prototype.isEmpty = function () {\r\n        return this.value === Guid.EMPTY;\r\n    };\r\n    Guid.prototype.toString = function () {\r\n        return this.value;\r\n    };\r\n    Guid.prototype.toJSON = function () {\r\n        return {\r\n            value: this.value\r\n        };\r\n    };\r\n    Guid.validator = new RegExp(\"^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$\", \"i\");\r\n    Guid.EMPTY = \"00000000-0000-0000-0000-000000000000\";\r\n    return Guid;\r\n}());\r\nexports.Guid = Guid;\r\n\n\n//# sourceURL=webpack:///./node_modules/guid-typescript/dist/guid.js?");
+eval("\r\nexports.__esModule = true;\r\nvar Guid = /** @class */ (function () {\r\n    function Guid(guid) {\r\n        if (!guid) {\r\n            throw new TypeError(\"Invalid argument; `value` has no value.\");\r\n        }\r\n        this.value = Guid.EMPTY;\r\n        if (guid && Guid.isGuid(guid)) {\r\n            this.value = guid;\r\n        }\r\n    }\r\n    Guid.isGuid = function (guid) {\r\n        var value = guid.toString();\r\n        return guid && (guid instanceof Guid || Guid.validator.test(value));\r\n    };\r\n    Guid.create = function () {\r\n        return new Guid([Guid.gen(2), Guid.gen(1), Guid.gen(1), Guid.gen(1), Guid.gen(3)].join(\"-\"));\r\n    };\r\n    Guid.createEmpty = function () {\r\n        return new Guid(\"emptyguid\");\r\n    };\r\n    Guid.parse = function (guid) {\r\n        return new Guid(guid);\r\n    };\r\n    Guid.raw = function () {\r\n        return [Guid.gen(2), Guid.gen(1), Guid.gen(1), Guid.gen(1), Guid.gen(3)].join(\"-\");\r\n    };\r\n    Guid.gen = function (count) {\r\n        var out = \"\";\r\n        for (var i = 0; i < count; i++) {\r\n            // tslint:disable-next-line:no-bitwise\r\n            out += (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);\r\n        }\r\n        return out;\r\n    };\r\n    Guid.prototype.equals = function (other) {\r\n        // Comparing string `value` against provided `guid` will auto-call\r\n        // toString on `guid` for comparison\r\n        return Guid.isGuid(other) && this.value === other.toString();\r\n    };\r\n    Guid.prototype.isEmpty = function () {\r\n        return this.value === Guid.EMPTY;\r\n    };\r\n    Guid.prototype.toString = function () {\r\n        return this.value;\r\n    };\r\n    Guid.prototype.toJSON = function () {\r\n        return {\r\n            value: this.value\r\n        };\r\n    };\r\n    Guid.validator = new RegExp(\"^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$\", \"i\");\r\n    Guid.EMPTY = \"00000000-0000-0000-0000-000000000000\";\r\n    return Guid;\r\n}());\r\nexports.Guid = Guid;\r\n\n\n//# sourceURL=webpack://trackingLogger/./node_modules/guid-typescript/dist/guid.js?");
 
 /***/ }),
 
@@ -106,8 +116,9 @@ eval("\r\nexports.__esModule = true;\r\nvar Guid = /** @class */ (function () {\
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar guid_typescript_1 = __webpack_require__(/*! guid-typescript */ \"./node_modules/guid-typescript/dist/guid.js\");\nvar TrackingLogger = (function () {\n    function TrackingLogger() {\n        this.trackingId = guid_typescript_1.Guid.create();\n        console.log(this.trackingId);\n        localStorage.setItem(\"id\", this.trackingId.toString());\n    }\n    return TrackingLogger;\n}());\nexports.TrackingLogger = TrackingLogger;\nexports.trackingLogger = new TrackingLogger();\n\n\n//# sourceURL=webpack:///./src/trackinglogger.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar guid_typescript_1 = __webpack_require__(/*! guid-typescript */ \"./node_modules/guid-typescript/dist/guid.js\");\nvar GenerateGuid = (function () {\n    function GenerateGuid() {\n        GenerateGuid.createGuid();\n    }\n    GenerateGuid.getGuid = function () {\n        return this.trackingId;\n    };\n    GenerateGuid.createGuid = function () {\n        return this.trackingId = guid_typescript_1.Guid.create();\n    };\n    return GenerateGuid;\n}());\nexports.GenerateGuid = GenerateGuid;\n\n\n//# sourceURL=webpack://trackingLogger/./src/trackinglogger.ts?");
 
 /***/ })
 
 /******/ });
+});

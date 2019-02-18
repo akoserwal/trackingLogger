@@ -1,15 +1,20 @@
 import { Guid } from "guid-typescript";
  
-export class TrackingLogger {
-    public trackingId: Guid;
+export class GenerateGuid {
+    public static trackingId: Guid;
 
-    constructor() {
-        this.trackingId = Guid.create();
-        console.log(this.trackingId);
-        localStorage.setItem("id",this.trackingId.toString());
+    private constructor() {
+        GenerateGuid.createGuid();
     }
-    
 
+    public static getGuid() {
+        return this.trackingId;
+    }
+
+    public static createGuid(){
+        return this.trackingId = Guid.create();
+    }    
+ 
 }
 
-export let trackingLogger = new TrackingLogger();
+
